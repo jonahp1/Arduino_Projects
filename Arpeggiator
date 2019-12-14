@@ -1,0 +1,50 @@
+#include "pitches.h"
+
+// notes in the melody:
+int chromaticArray[] = {
+ NOTE_C3, NOTE_CS3, NOTE_D3, NOTE_DS3, NOTE_E3, NOTE_F3, NOTE_FS3, NOTE_G3,
+NOTE_GS3, NOTE_A3, NOTE_AS3, NOTE_B3,
+ NOTE_C4, NOTE_CS4, NOTE_D4, NOTE_DS4, NOTE_E4, NOTE_F4, NOTE_FS4, NOTE_G4,
+NOTE_GS4, NOTE_A4, NOTE_AS4, NOTE_B4
+};
+
+int pitchCounter;
+int arpBegin;
+int checkPitchButton;
+int pot1;
+int pitchMult;
+int pot2;
+int tempo;
+int pot3;
+int artic;
+int pot4;
+int pitchMultFine;
+void setup() {
+ Serial.begin(9600);
+ // put the pitch buttons on digital pins 2-26
+ for (int buttonMode = 2; buttonMode < 26; buttonMode++){
+ pinMode(buttonMode, INPUT_PULLUP);
+ }
+}
+
+void loop() {
+ arpBegin = 0;
+ // use the for loop to check all 24 buttons
+ for (pitchCounter = 2; pitchCounter < 26; pitchCounter++){
+ checkPitchButton = digitalRead(pitchCounter);
+ pot1 = analogRead (A0);
+ pitchMult = map (pot1, 0, 1023, 5, 1);
+ pot2 = analogRead (A8);
+ tempo = map(pot2, 0, 1023, 10, 500);
+ pot3 = analogRead (A2);
+ artic = map(pot3, 0, 1023, (tempo / 8), tempo);
+ pot4 = analogRead (A3);
+ pitchMultFine = map(pot4, 0, 1023, 500, 1);
+ if (checkPitchButton == 0){
+ tone(30, chromaticArray[pitchCounter - 2]*pitchMult*pitchMultFine, artic);
+ delay(tempo);
+ noTone(tempo);
+ delay(100);
+ }
+ }
+}
