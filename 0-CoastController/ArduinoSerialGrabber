@@ -1,0 +1,130 @@
+int pot1; // pot 1 in A0
+int pot2; // pot 2 in A1
+int pot3; // pot 3 in A2
+int pot4; // pot 4 in A3
+int pot5; // pot 2 in A4
+int pot6; // pot 3 in A5
+
+int buttonC;
+int buttonPin = 2; // C in pin 2
+int buttonCS;
+int buttonPinCS = 3; // C Sharp in pin 3
+int buttonD;
+int buttonPinD = 4; // etc...
+int buttonDS;
+int buttonPinDS = 5;
+int buttonE;
+int buttonPinE = 6;
+int buttonF;
+int buttonPinF = 7;
+int buttonFS;
+int buttonPinFS = 8;
+int buttonG;
+int buttonPinG = 9;
+int buttonGS;
+int buttonPinGS = 10;
+int buttonA;
+int buttonPinA = 11;
+int buttonAS;
+int buttonPinAS = 12;
+int buttonB;
+int buttonPinB = 13;
+int button8vb;
+int buttonPin8vb = 22;
+int button0va;
+int buttonPin0va = 23;
+int button8va;
+int buttonPin8va = 24;
+
+void setup() {
+ // put your setup code here, to run once:
+Serial.begin(9600);
+pinMode(buttonPin, INPUT_PULLUP);
+pinMode(buttonPinCS, INPUT_PULLUP);
+pinMode(buttonPinD, INPUT_PULLUP);
+pinMode(buttonPinDS, INPUT_PULLUP);
+pinMode(buttonPinE, INPUT_PULLUP);
+pinMode(buttonPinF, INPUT_PULLUP);
+pinMode(buttonPinFS, INPUT_PULLUP);
+pinMode(buttonPinG, INPUT_PULLUP);
+pinMode(buttonPinGS, INPUT_PULLUP);
+pinMode(buttonPinA, INPUT_PULLUP);
+pinMode(buttonPinAS, INPUT_PULLUP);
+pinMode(buttonPinB, INPUT_PULLUP);
+pinMode(buttonPin8vb, INPUT_PULLUP);
+pinMode(buttonPin0va, INPUT_PULLUP);
+pinMode(buttonPin8va, INPUT_PULLUP);
+}
+
+void loop() {
+ // put your main code here, to run repeatedly:
+pot1 = analogRead(A0);
+// pot1value = map(pot1, 0, 1023, 100, 0);
+Serial.print(pot1);
+Serial.print(" ");
+pot2 = analogRead(A1);
+// pot2value = map(pot2, 0, 1023, 101, 200);
+Serial.print(pot2);
+Serial.print(" ");
+pot3 = analogRead(A2);
+// pot2value = map(pot2, 0, 1023, 101, 200);
+Serial.print(pot3);
+Serial.print(" ");
+pot4 = analogRead(A8);
+// pot1value = map(pot1, 0, 1023, 100, 0);
+Serial.print(pot4);
+Serial.print(" ");
+pot5 = analogRead(A4);
+// pot2value = map(pot2, 0, 1023, 101, 200);
+Serial.print(pot5);
+Serial.print(" ");
+pot6 = analogRead(A5);
+// pot2value = map(pot2, 0, 1023, 101, 200);
+Serial.print(pot6);
+Serial.print(" ");
+button8vb = digitalRead(buttonPin8vb);
+Serial.print(button8vb);
+Serial.print(" ");
+button0va = digitalRead(buttonPin0va);
+Serial.print(button0va);
+Serial.print(" ");
+button8va = digitalRead(buttonPin8va);
+Serial.print(button8va);
+Serial.print(" ");
+buttonC = digitalRead(buttonPin);
+Serial.print(buttonC);
+Serial.print(" ");
+buttonCS = digitalRead(buttonPinCS);
+Serial.print(buttonCS);
+Serial.print(" ");
+buttonD = digitalRead(buttonPinD);
+Serial.print(buttonD);
+Serial.print(" ");
+buttonDS = digitalRead(buttonPinDS);
+Serial.print(buttonDS);
+Serial.print(" ");
+buttonE = digitalRead(buttonPinE);
+Serial.print(buttonE);
+Serial.print(" ");
+buttonF = digitalRead(buttonPinF);
+Serial.print(buttonF);
+Serial.print(" ");
+buttonFS = digitalRead(buttonPinFS);
+Serial.print(buttonFS);
+Serial.print(" ");
+buttonG = digitalRead(buttonPinG);
+Serial.print(buttonG);
+Serial.print(" ");
+buttonGS = digitalRead(buttonPinGS);
+Serial.print(buttonGS);
+Serial.print(" ");
+buttonA = digitalRead(buttonPinA);
+Serial.print(buttonA);
+Serial.print(" ");
+buttonAS = digitalRead(buttonPinAS);
+Serial.print(buttonAS);
+Serial.print(" ");
+buttonB = digitalRead(buttonPinB);
+Serial.println(buttonB);
+delay(50);
+}
